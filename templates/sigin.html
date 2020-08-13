@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Chatter</title>
+    <link rel="stylesheet" href="{% static "css/signin.css" %}">
+</head>
+<body class="container" style="text-align: center">
+<h1>Вход</h1>
+
+<div class="login-page">
+  <div class="form">
+    <form class="login-form" method="POST" action="login/">
+        {% csrf_token %}
+      <input type="email" placeholder="Ваш Email" name="email"/>
+      <input type="password" placeholder="Пароль" name="pass" maxlength="16" minlength="8"/>
+        {% for message in messages %}
+
+                    <div class="alert alert-success">
+
+                        {{ message }}
+
+                    </div>
+            {% endfor %}
+      <input type="submit" value="Войти">
+      <p class="message">Не зарегестрированы<a href="/signup/">Создайте аккаунт</a></p>
+    </form>
+  </div>
+</div>
+</body>
+</html>
+

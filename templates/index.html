@@ -1,0 +1,67 @@
+
+
+<!DOCTYPE html>
+{% load  static %}
+<html>
+<head>
+<title>Creative Colorlib SignUp Form</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Custom Theme files -->
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!-- //Custom Theme files -->
+<!-- web font -->
+<link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
+    <link rel="stylesheet" href="{% static "css/index.css" %}">
+<!-- //web font -->
+</head>
+<body>
+	<!-- main -->
+	<div class="main-w3layouts wrapper">
+		<h1>Регистрация для продаж</h1>
+		<div class="main-agileinfo">
+			<div class="agileits-top">
+				<form action="create/" method="post">
+                {% csrf_token %}
+					<input class="text" type="text" name="name" placeholder="Имя и Фамилия" required="">
+                    <input class="text company " type="text" name="company" placeholder="Название компании" required="">
+					<input class="text email" type="email" name="email" placeholder="Email" required="">
+
+					<input class="text" type="password" name="pass" placeholder="Пароль" minlength="8" maxlength="16" required="">
+					<input class="text w3lpass" type="password" name="re_pass" placeholder="Подтверждение пароля" minlength="8" maxlength="16" required="">
+                       {% for message in messages %}
+                    <div class="alert alert-success">
+                        {{ message }}
+                    </div>
+            {% endfor %}
+					<div class="wthree-text">
+						<label class="anim">
+							<input type="checkbox" class="checkbox" required="">
+							<span>Согласен с политикой конфиденциальности</span>
+						</label>
+						<div class="clear"> </div>
+					</div>
+					<input type="submit" value="Зарегестрироваться">
+				</form>
+				<p>Есть аккаунт?<a href="/signin/">Войти</a></p>
+			</div>
+		</div>
+		<!-- copyright -->
+		<!-- //copyright -->
+		<ul class="colorlib-bubbles">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	<!-- //main -->
+</body>
+</html>
